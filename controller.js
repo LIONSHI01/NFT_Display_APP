@@ -3,6 +3,7 @@ import { AJAX } from "./helper.js";
 const imgContainer = document.querySelector(".img-container");
 const btnInput = document.querySelector(".inputBtn");
 const walletInput = document.querySelector(".input-wallet");
+walletInput.focus();
 
 const state = {
   collections: [],
@@ -46,7 +47,7 @@ const render = function (markup) {
   imgContainer.insertAdjacentHTML("beforeend", markup);
 };
 
-const startEngine = async function (wallet) {
+const displayResults = async function (wallet) {
   await loadSearchResults(wallet);
 
   console.log(state.collections);
@@ -56,7 +57,10 @@ const startEngine = async function (wallet) {
 
 btnInput.addEventListener("click", () => {
   state.wallet = walletInput.value;
-  startEngine(state.wallet);
+  // displayResults(state.wallet);
+
+  // Temperate for test
+  displayResults(wallet3);
 });
 
 const wallet1 = "0xA90c70882Fc63ac514bE15743a13595Cb39F767D";
