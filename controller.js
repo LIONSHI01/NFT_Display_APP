@@ -33,7 +33,9 @@ const generateMarkup = function (data) {
           <li>${el.collection_name}</li>
           <li>Token ID : #${el.token_id ? el.token_id : "No Token ID"}</li>
           <li>
-            <a class="nft-link" href="${el.permalink}">Go to assets</a>
+            <a class="nft-link" target="blank" href="${
+              el.permalink
+            }">Go to assets</a>
           </li>
         </ul>
       </div>
@@ -62,3 +64,4 @@ btnInput.addEventListener("click", () => {
 
 const wallet1 = "0xA90c70882Fc63ac514bE15743a13595Cb39F767D";
 const wallet2 = "0x8742fa292AFfB6e5eA88168539217f2e132294f9";
+const wallet3 = "0x0449Bc01e1D8154A118c56aaA776272e94B45929";
