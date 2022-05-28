@@ -1,18 +1,22 @@
 import { AJAX } from "./helper.js";
 // import * as model from "./model.js";
+
+//Initial variable setup
 const imgContainer = document.querySelector(".img-container");
 const btnInput = document.querySelector(".inputBtn");
 const walletInput = document.querySelector(".input-wallet");
 walletInput.focus();
 
+// Build temperate data base for later rendering results
 const state = {
   collections: [],
   wallet: "",
 };
 
+// Extract data from query results
 const loadSearchResults = async function (wallet) {
   const data = await AJAX(wallet);
-
+  // Save result array in state database
   state.collections = data.assets.map((res) => {
     return {
       collection_name: res.collection.name,
@@ -21,10 +25,11 @@ const loadSearchResults = async function (wallet) {
       permalink: res.permalink,
     };
   });
-  // console.log(state.collections);
 };
 
+// Generate markup from state database
 const generateMarkup = function (data) {
+  // markup is returned as array, and join the markup string together as HTML string
   const markup = data
     .map((el) => {
       return `
@@ -43,18 +48,21 @@ const generateMarkup = function (data) {
   return markup;
 };
 
+// Render markup into imgcontainer
 const render = function (markup) {
   imgContainer.insertAdjacentHTML("beforeend", markup);
 };
 
+// Combine query function and render function together
 const displayResults = async function (wallet) {
   await loadSearchResults(wallet);
 
-  console.log(state.collections);
+  // console.log(state.collections);
   const markup = generateMarkup(state.collections);
   render(markup);
 };
 
+// Execute displayResults function when user click query button
 btnInput.addEventListener("click", () => {
   state.wallet = walletInput.value;
   // displayResults(state.wallet);
