@@ -1,9 +1,12 @@
 import { AJAX } from "./helper.js";
 // import * as model from "./model.js";
 const container = document.querySelector(".img-container");
+const btnInput = document.querySelector(".inputBtn");
+const walletInput = document.querySelector(".input-wallet");
 
 const state = {
   collections: [],
+  wallet: "",
 };
 
 const loadSearchResults = async function (wallet) {
@@ -52,9 +55,10 @@ const startEngine = async function (wallet) {
   render(markup);
 };
 
-const wallet1 = "0xA90c70882Fc63ac514bE15743a13595Cb39F767D";
+btnInput.addEventListener("click", () => {
+  state.wallet = walletInput.value;
+  startEngine(state.wallet);
+});
 
+const wallet1 = "0xA90c70882Fc63ac514bE15743a13595Cb39F767D";
 const wallet2 = "0x8742fa292AFfB6e5eA88168539217f2e132294f9";
-// loadSearchResults(wallet);
-startEngine(wallet2);
-console.log("hello");

@@ -12,6 +12,14 @@ li {
   list-style: none;
   font-size: 20px;
 }
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.inputBtn {
+  width: 100px;
+}
 
 .nft-link:link,
 :visited {
