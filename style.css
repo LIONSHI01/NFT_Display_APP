@@ -13,8 +13,21 @@ body {
 
 li {
   list-style: none;
-  font-size: 20px;
+  font-size: 17px;
 }
+
+a:link {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  width: 1000px;
+  margin: 0 auto;
+  background-color: #444;
+  flex-direction: column;
+}
+
 .input-container {
   display: flex;
   align-items: center;
@@ -37,25 +50,20 @@ li {
   font-weight: bold;
 }
 
-.container {
-  width: 1000px;
-  margin: 0 auto;
-  /* background-color: #444; */
-  display: flex;
-  flex-direction: column;
-}
-
 .input-wallet {
+  display: inline-block;
   width: 500px;
   margin: 50px;
-  display: inline-block;
 }
 
 .img-container {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  column-gap: 10px;
+  row-gap: 30px;
+  justify-items: center;
+
   margin-top: 100px;
 }
 
