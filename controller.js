@@ -27,7 +27,7 @@ const generateMarkup = function (data) {
   const markup = data
     .map((el) => {
       return `
-    <div>
+    <div class="info">
       <img class="nft-img" src="${el.image_url}"/>
         <ul>
           <li>${el.collection_name}</li>

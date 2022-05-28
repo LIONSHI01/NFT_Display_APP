@@ -6,6 +6,9 @@
 
 body {
   position: relative;
+
+  background-color: #8ec5fc;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
 }
 
 li {
@@ -15,6 +18,9 @@ li {
 .input-container {
   display: flex;
   align-items: center;
+}
+.input-wallet::placeholder {
+  text-align: center;
 }
 
 .inputBtn {
@@ -34,7 +40,7 @@ li {
 .container {
   width: 1000px;
   margin: 0 auto;
-  background-color: #444;
+  /* background-color: #444; */
   display: flex;
   flex-direction: column;
 }
@@ -58,7 +64,11 @@ li {
   display: inline-block;
 }
 
-/* CSS */
+.info:hover {
+  background-color: rgba(68, 68, 68, 0.06);
+}
+
+/* CSS for button */
 .button-34 {
   background: #5e5df0;
   border-radius: 999px;
