@@ -4,7 +4,7 @@ import { AJAX } from "./helper.js";
 //Initial variable setup
 const imgContainer = document.querySelector(".img-container");
 const btnInput = document.querySelector(".inputBtn");
-const walletInput = document.querySelector(".input-wallet");
+const walletInput = document.querySelector(".input-box");
 walletInput.focus();
 
 // Build temperate data base for later rendering results
