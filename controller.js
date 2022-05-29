@@ -35,7 +35,7 @@ const generateMarkup = function (data) {
       return `
     <div class="info">
       <img class="nft-img" src="${el.image_url}"/>
-        <ul>
+        <ul class="info-details">
           <li>${el.collection_name}</li>
           <li>
             <a class="nft-link" target="blank" href="${el.permalink}">Go to assets</a>
@@ -65,10 +65,10 @@ const displayResults = async function (wallet) {
 // Execute displayResults function when user click query button
 btnInput.addEventListener("click", () => {
   state.wallet = walletInput.value;
-  // displayResults(state.wallet);
+  displayResults(state.wallet);
 
   // Temperate for test
-  displayResults(wallet3);
+  // displayResults(wallet3);
 });
 
 const wallet1 = "0xA90c70882Fc63ac514bE15743a13595Cb39F767D";
