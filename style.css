@@ -1,3 +1,8 @@
+/* COLOR */
+/* bodybackground:#8ec5fc , #e0c3fc
+   
+#b197fc */
+
 * {
   margin: 0;
   padding: 0;
@@ -15,13 +20,12 @@ body {
 
 li {
   list-style: none;
-  font-size: 17px;
+
   margin-bottom: 10px;
 }
 
 a:link {
   text-decoration: none;
-  margin-bottom: 10px;
 }
 
 .container {
@@ -46,7 +50,16 @@ a:link {
   text-transform: uppercase;
 }
 .nft-link {
+  background: #e0c3fc;
+
+  cursor: pointer;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
   text-transform: uppercase;
+  display: block;
+  padding: 10px;
+  font-size: 17px;
+  text-align: center;
 }
 
 .nft-link:link,
@@ -55,7 +68,7 @@ a:link {
 }
 
 .nft-link:hover {
-  color: #1864ab;
+  background-color: #d4a9fb;
   font-weight: 600;
 }
 
@@ -93,8 +106,9 @@ a:link {
 }
 
 .info-details {
+  display: grid;
   padding: 10px;
-  font-size: 13px;
+  font-size: 19px;
 }
 
 /* CSS for button */
