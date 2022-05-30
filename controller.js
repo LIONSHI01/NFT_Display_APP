@@ -34,11 +34,11 @@ const generateMarkup = function (data) {
     .map((el) => {
       return `
     <figure class="info">
-      <img class="nft-img" src="${el.image_url}"/>
+      <img alt="${el.collection_name}" class="nft-img" src="${el.image_url}"/>
         <ul class="info-details">
           <li>${el.collection_name}</li>
         </ul>
-        <a class="nft-link" target="blank" href="${el.permalink}">view on Opensea</a>
+        <a class="nft-link" target="_blank" href="${el.permalink}">view on Opensea</a>
       </figure>
     `;
     })
