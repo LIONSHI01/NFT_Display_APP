@@ -111,6 +111,10 @@ a:link {
   font-size: 19px;
 }
 
+.info:hover {
+  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.12);
+}
+
 /* CSS for button */
 .button-34 {
   background: #5e5df0;
