@@ -1,5 +1,5 @@
 import { AJAX } from "./helper.js";
-// import * as model from "./model.js";
+import { ETHER_SCAN_API_KEY } from "./config.js";
 
 //Initial variable setup
 const imgContainer = document.querySelector(".img-container");
@@ -11,20 +11,26 @@ walletInput.focus();
 const state = {
   collections: [],
   wallet: "",
+  ethBalance: 0,
 };
 
-// Extract data from query results
-const loadSearchResults = async function (wallet) {
-  const data = await AJAX(wallet);
-  // Save result array in state database
-  state.collections = data.assets.map((res) => {
-    return {
-      collection_name: res.collection.name,
-      token_id: res.token_id,
-      image_url: res.image_url,
-      permalink: res.permalink,
-    };
-  });
+// Extract data from NFT query results
+const loadNFTResults = async function (wallet) {
+  try {
+    const URL = `https://api.opensea.io/api/v1/assets?owner=${wallet}&order_direction=desc&limit=200&include_orders=false`;
+    const data = await AJAX(URL);
+    // Save result array in state database
+    state.collections = data.assets.map((res) => {
+      return {
+        collection_name: res.collection.name,
+        token_id: res.token_id,
+        image_url: res.image_url,
+        permalink: res.permalink,
+      };
+    });
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 // Generate markup from state database
@@ -53,7 +59,7 @@ const render = function (markup) {
 
 // Combine query function and render function together
 const displayResults = async function (wallet) {
-  await loadSearchResults(wallet);
+  await loadNFTResults(wallet);
 
   // console.log(state.collections);
   const markup = generateMarkup(state.collections);
@@ -69,7 +75,21 @@ btnInput.addEventListener("click", () => {
   // displayResults(wallet3);
 });
 
+const loadAccountBalResults = async function (wallet) {
+  try {
+    const URL = `https://api.etherscan.io/api?module=account&action=balance&address=${wallet}&tag=latest&apikey=${ETHER_SCAN_API_KEY}`;
+
+    const data = await AJAX(URL);
+    state.ethBalance = +data.result / 1000000000000000000;
+    console.log(state.ethBalance);
+  } catch (err) {
+    console.error(`🥶 ${err}`);
+  }
+};
+
 const wallet1 = "0xA90c70882Fc63ac514bE15743a13595Cb39F767D";
 const wallet2 = "0x8742fa292AFfB6e5eA88168539217f2e132294f9";
 const wallet3 = "0x0449Bc01e1D8154A118c56aaA776272e94B45929";
 const wallet4 = "0x88B2b904147b94FD50F710D9Cbc5B8F07c982C30";
+
+loadAccountBalResults(wallet4);
