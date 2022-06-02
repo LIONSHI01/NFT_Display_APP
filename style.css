@@ -49,6 +49,11 @@ a:link {
   width: 100px;
   text-transform: uppercase;
 }
+
+.account-container {
+  margin-top: 40px;
+}
+
 .nft-link {
   background: #e0c3fc;
 

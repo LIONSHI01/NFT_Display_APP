@@ -3,6 +3,8 @@ import { ETHER_SCAN_API_KEY } from "./config.js";
 
 //Initial variable setup
 const imgContainer = document.querySelector(".img-container");
+const accountContainer = document.querySelector(".account-container");
+
 const btnInput = document.querySelector(".inputBtn");
 const walletInput = document.querySelector(".input-box");
 walletInput.focus();
@@ -34,7 +36,7 @@ const loadNFTResults = async function (wallet) {
 };
 
 // Generate markup from state database
-const generateMarkup = function (data) {
+const generateNFTMarkup = function (data) {
   // markup is returned as array, and join the markup string together as HTML string
   const markup = data
     .map((el) => {
@@ -52,23 +54,47 @@ const generateMarkup = function (data) {
   return markup;
 };
 
+const generateAccountMarkup = function () {
+  return `
+    <ol>
+      <li>Wallet Address: ${state.wallet}</li>
+      <li>Ethereum Balance: ${state.ethBalance.toFixed(4)} ETH</li>
+    </ol>
+  `;
+};
+
 // Render markup into imgcontainer
-const render = function (markup) {
+const renderNFT = function (markup) {
   imgContainer.insertAdjacentHTML("beforeend", markup);
+};
+
+// Render Account markup into account-info container
+const renderAccount = function (markup) {
+  accountContainer.insertAdjacentHTML("beforeend", markup);
 };
 
 // Combine query function and render function together
 const displayResults = async function (wallet) {
   await loadNFTResults(wallet);
-
+  await loadAccountBalResults(wallet);
   // console.log(state.collections);
-  const markup = generateMarkup(state.collections);
-  render(markup);
+  const NFTmarkup = generateNFTMarkup(state.collections);
+  const accountInfoMarkup = generateAccountMarkup();
+  renderNFT(NFTmarkup);
+  renderAccount(accountInfoMarkup);
+};
+
+//Clear up view result
+const clear = function () {
+  walletInput.value = "";
+  imgContainer.innerHTML = "";
+  accountContainer.innerHTML = "";
 };
 
 // Execute displayResults function when user click query button
 btnInput.addEventListener("click", () => {
   state.wallet = walletInput.value;
+  clear();
   displayResults(state.wallet);
 
   // Temperate for test
