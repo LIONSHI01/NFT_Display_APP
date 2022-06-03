@@ -18,10 +18,14 @@ body {
   margin-bottom: 100px;
 }
 
+footer {
+  margin-top: 100px;
+  font-size: 14px;
+  /* text-align: left; */
+}
+
 li {
   list-style: none;
-
-  margin-bottom: 10px;
 }
 
 a:link {
@@ -36,6 +40,7 @@ a:link {
   flex-direction: column;
 }
 
+/* INPUT SECTION */
 .input-container {
   display: grid;
 
@@ -50,13 +55,42 @@ a:link {
   text-transform: uppercase;
 }
 
+/* ACCOUNT/WALLET SECTION */
 .account-container {
   margin-top: 40px;
 }
 
+.account-info-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 20px;
+  /* align-items: end; */
+}
+
+.wallet-address {
+  grid-column: 1/-1;
+}
+
+.wallet-balance {
+}
+
+.etherscan-link:link,
+:visited {
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #343a40;
+  border: 2px solid #b197fc;
+  padding: 6px 12px;
+  border-radius: 12px;
+}
+
+.etherscan-link:hover {
+  background-color: hsla(271, 90%, 88%, 0.584);
+}
+
+/* NFT DISPLAY SECTION */
 .nft-link {
   background: #e0c3fc;
-
   cursor: pointer;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;

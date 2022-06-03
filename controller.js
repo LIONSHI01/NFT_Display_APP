@@ -56,9 +56,14 @@ const generateNFTMarkup = function (data) {
 
 const generateAccountMarkup = function () {
   return `
-    <ol>
-      <li>Wallet Address: ${state.wallet}</li>
-      <li>Ethereum Balance: ${state.ethBalance.toFixed(4)} ETH</li>
+    <ol class="account-info-list">
+      <li class="wallet-address">Wallet Address: ${state.wallet}</li>
+      <li class="wallet-balance">Ethereum Balance: ${state.ethBalance.toFixed(
+        4
+      )} ETH</li>
+      <li><a class="etherscan-link" href="https://etherscan.io/address/${
+        state.wallet
+      }" target="_blank">view on etherscan</a></li>
     </ol>
   `;
 };

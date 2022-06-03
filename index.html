@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/style.css" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NFT Display</title>
+    <title>NFT Display App</title>
   </head>
   <body>
     <div class="container">
@@ -31,10 +31,22 @@
         </div>
       </section>
       <section class="account-container">
-        <!-- <ol>
-          <li>Wallet Address:</li>
-          <li>Ethereum Balance:</li>
-        </ol> -->
+        <ol class="account-info-list">
+          <li class="wallet-address">
+            Wallet Address:0x8742fa292AFfB6e5eA88168539217f2e132294f9
+          </li>
+          <li class="wallet-balance">Ethereum Balance: 100.0291 ETH</li>
+          <li>
+            <a
+              class="etherscan-link"
+              href="https://etherscan.io/address/${
+            state.wallet
+          }"
+              target="_blank"
+              >view on etherscan</a
+            >
+          </li>
+        </ol>
       </section>
       <section class="img-container">
         <!-- Image Display Example -->
@@ -66,8 +78,11 @@
           </ul>
         </div> -->
       </section>
+      <footer>
+        Copyright &copy; 2022 by Mr.lion. All the contents provided within this
+        website should not be considered as financial advice. Use for fun only.
+      </footer>
     </div>
-    <footer>Copyright &copy; 2022 by Mr.lion.</footer>
   </body>
   <script type="module" src="/controller.js"></script>
 </html>
