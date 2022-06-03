@@ -82,6 +82,7 @@ a:link {
   border: 2px solid #b197fc;
   padding: 6px 12px;
   border-radius: 12px;
+  margin-left: -55px;
 }
 
 .etherscan-link:hover {
