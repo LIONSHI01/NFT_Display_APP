@@ -1,13 +1,39 @@
-import { AJAX } from "./helper";
+import { AJAX } from "./helper.js";
 
+// Build temperate data base for later rendering results
 export const state = {
   collections: [],
   wallet: "",
   ethBalance: 0,
 };
-export const createSearchObject = function (data) {
-  const { assets } = data.assets;
-  console.log(assets);
+
+// Extract data from NFT query results
+export const loadNFTResults = async function (wallet) {
+  try {
+    const URL = `https://api.opensea.io/api/v1/assets?owner=${wallet}&order_direction=desc&limit=200&include_orders=false`;
+    const data = await AJAX(URL);
+    // Save result array in state database
+    state.collections = data.assets.map((res) => {
+      return {
+        collection_name: res.collection.name,
+        token_id: res.token_id,
+        image_url: res.image_url,
+        permalink: res.permalink,
+      };
+    });
+  } catch (err) {
+    console.error(err);
+  }
 };
 
-console.log("test");
+export const loadAccountBalResults = async function (wallet) {
+  try {
+    const URL = `https://api.etherscan.io/api?module=account&action=balance&address=${wallet}&tag=latest&apikey=${ETHER_SCAN_API_KEY}`;
+
+    const data = await AJAX(URL);
+    state.ethBalance = +data.result / 1000000000000000000;
+    console.log(state.ethBalance);
+  } catch (err) {
+    console.error(`🥶 ${err}`);
+  }
+};
