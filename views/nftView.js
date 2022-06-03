@@ -3,6 +3,7 @@ import View from "./View.js";
 class NFTView extends View {
   _parentElement = document.querySelector(".img-container");
   _btnInput = document.querySelector(".inputBtn");
+  _walletInput = document.querySelector(".input-box");
   _errorMessage = "Oops, no NFT found in this wallet ;)";
 
   _generateMarkup() {
@@ -21,6 +22,12 @@ class NFTView extends View {
       })
       .join("");
     return markup;
+  }
+
+  getQuery() {
+    const query = this._walletInput.value;
+    this._walletInput.value = "";
+    return query;
   }
 
   addHandlerSearch(handler) {

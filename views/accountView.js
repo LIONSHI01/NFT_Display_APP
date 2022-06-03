@@ -2,6 +2,7 @@ import View from "./View.js";
 
 class AccountView extends View {
   _parentElement = document.querySelector(".account-container");
+  _errorMessage = "Wallet not found, please enter again :)";
 
   _generateMarkup() {
     return `

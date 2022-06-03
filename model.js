@@ -1,4 +1,5 @@
 import { AJAX } from "./helper.js";
+import { ETHER_SCAN_API_KEY } from "./config.js";
 
 // Build temperate data base for later rendering results
 export const state = {
@@ -28,6 +29,7 @@ export const loadNFTResults = async function (wallet) {
 
 export const loadAccountBalResults = async function (wallet) {
   try {
+    state.wallet = wallet;
     const URL = `https://api.etherscan.io/api?module=account&action=balance&address=${wallet}&tag=latest&apikey=${ETHER_SCAN_API_KEY}`;
 
     const data = await AJAX(URL);
