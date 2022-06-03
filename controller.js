@@ -1,5 +1,6 @@
 import { AJAX } from "./helper.js";
 import { ETHER_SCAN_API_KEY } from "./config.js";
+import * as model from "./model.js";
 
 //Initial variable setup
 const imgContainer = document.querySelector(".img-container");
