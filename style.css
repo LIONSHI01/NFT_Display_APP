@@ -39,8 +39,9 @@ a:link {
   /* background-color: #444; */
   flex-direction: column;
 }
-
+/* ****************************** */
 /* INPUT SECTION */
+/* ****************************** */
 .input-container {
   display: grid;
 
@@ -54,8 +55,9 @@ a:link {
   width: 100px;
   text-transform: uppercase;
 }
-
+/* ****************************** */
 /* ACCOUNT/WALLET SECTION */
+/* ****************************** */
 .account-container {
   margin-top: 40px;
 }
@@ -91,8 +93,9 @@ a:link {
 .etherscan-link:hover {
   background-color: hsla(271, 90%, 88%, 0.584);
 }
-
+/* ****************************** */
 /* NFT DISPLAY SECTION */
+/* ****************************** */
 .nft-link {
   background: #e0c3fc;
   cursor: pointer;
@@ -125,7 +128,7 @@ a:link {
   padding: 10px;
 }
 
-.img-container {
+.display-container {
   display: grid;
   grid-template-columns: repeat(4, 250px);
 
@@ -136,18 +139,30 @@ a:link {
   align-items: start;
 }
 
-.nft-img {
-  width: 250px;
-  display: inline-block;
+.img-container {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
+  overflow: hidden;
 }
 
-.info {
-  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.07);
+.nft-img {
+  width: 250px;
+  display: block;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+
+  transition: all 0.4s;
+}
+
+.nft-img:hover {
+  transform: scale(1.05);
+}
+
+.info-box {
+  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.1);
   border-radius: 30px;
   background-color: white;
-  transition: all 0.3s;
+  transition: all 0.4s;
 }
 
 .info-details {
@@ -156,11 +171,14 @@ a:link {
   font-size: 19px;
 }
 
-.info:hover {
-  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.12);
+.info-box:hover {
+  transform: translate(0, -8px);
+  box-shadow: 0 24px 45px 0 rgba(0, 0, 0, 0.075);
 }
 
+/* ****************************** */
 /* CSS for button */
+/* ****************************** */
 .button-34 {
   background: #5e5df0;
   border-radius: 999px;
