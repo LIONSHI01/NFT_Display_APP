@@ -147,6 +147,7 @@ a:link {
   box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.07);
   border-radius: 30px;
   background-color: white;
+  transition: all 0.3s;
 }
 
 .info-details {
