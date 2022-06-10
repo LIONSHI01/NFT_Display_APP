@@ -36,22 +36,62 @@ a:link {
   display: flex;
   width: 1000px;
   margin: 0 auto;
-  /* background-color: #444; */
   flex-direction: column;
 }
 /* ****************************** */
 /* INPUT SECTION */
 /* ****************************** */
 .input-container {
-  display: grid;
-
-  justify-items: center;
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
+
+.input-box {
+  display: block;
+  width: 500px;
+  height: 30px;
+  border-radius: 9px;
+  padding: 10px;
+  align-self: center;
+
+  border: none;
+}
+
+.input-container *:focus {
+  outline: none;
+  box-shadow: 0 0 0 8px rgba(176, 151, 252, 0.5);
+}
+
 .input-box::placeholder {
+  text-align: center;
+  font-family: inherit;
+  font-size: 16px;
+  color: #aaa;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  justify-content: center;
+}
+
+.input-form label,
+.input-form input {
+  display: block;
   text-align: center;
 }
 
+.input-form label {
+  font-size: 24px;
+  font-weight: 600;
+}
+
 .inputBtn {
+  display: inline-block;
+  align-self: center;
   width: 100px;
   text-transform: uppercase;
 }
@@ -117,15 +157,6 @@ a:link {
 .nft-link:hover {
   background-color: #d4a9fb;
   font-weight: 600;
-}
-
-.input-box {
-  display: inline-block;
-  width: 500px;
-  height: 30px;
-  margin: 50px;
-  border-radius: 12px;
-  padding: 10px;
 }
 
 .display-container {
